@@ -25,7 +25,7 @@ describe (
             LoginPage.loginBtn.click();
             expect(LoginPage.errorMessageContainer).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
-            .toHaveText("Epic sadface:Password is requiered");
+            .toHaveText("Epic sadface: Password is required");
             browser.pause(1000);
         });
     describe('password field testing' , () => {
@@ -69,11 +69,12 @@ describe (
         it('valid username and wrong password' , () => {
             LoginPage.testLogin('standard_user' , '12345');
             LoginPage.loginBtn.click();
-            expect(Llogin.wrongUserInput).toBeDisplayed();
+            expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
-            .toHaveText("Epic sadface: Username and password do not match any user in this service");
-            browser.url(urlLogin);
-        });
+            .toHaveText(
+                "Epic sadface: Username and password do not match any user in this service");
+                browser.url(urlLogin)
+            });
         it('invalid username and invalid password', () => {            
             LoginPage.testLogin('user1', '12345');
             LoginPage.loginBtn.click();
@@ -81,6 +82,7 @@ describe (
             expect(LoginPage.errorMessageContainer)
             .toHaveText(
                 "Epic sadface: Username and password do not match any user in this service");
+                browser.url(urlLogin)
             });
          it('locked user with correct password we stay on the'+
             'login page and get an error message', () => {            
@@ -116,7 +118,5 @@ describe (
             browser.url(urlLogin);               
         });
     });   
+    });
 });
-
-        
-
