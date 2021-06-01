@@ -29,7 +29,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
-            CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
+            CheckoutPage.testCheckoutForm('Fiorella', 'Salas', '1994');
             expect(browser).toHaveUrl(urlCheckoutTwo);
             expect(CheckoutPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
             expect(CheckoutPage.descriptionItemSelector(0))
@@ -70,7 +70,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
-            CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
+            CheckoutPage.testCheckoutForm('Fiorella', 'Salas', '1994');
             expect(browser).toHaveUrl(urlCheckoutTwo);
             expect(CheckoutPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
             expect(CheckoutPage.descriptionItemSelector(0))
