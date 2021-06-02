@@ -24,54 +24,54 @@ describe ('INVENTORY page testing',  () => {
             browser.pause(1000);
         });
         describe('Body testing' , () => {
-            describe('Sorter testing' , () => {
-                it('Name A-Z :  the names must be ordered in a descending fashion', () =>{
-                    browser.refresh();
-                    InventoryPage.productSorter.click();
-                    InventoryPage.sortItems(0);
-                    expect(InventoryPage.nameItemSelector(5))
-                    .toHaveText("Test.allTheThings() T-Shirt (Red)");
-                    expect(InventoryPage.nameItemSelector(4)).toHaveText("Sauce Labs Onesie");
-                    expect(InventoryPage.nameItemSelector(3)).toHaveText("Sauce Labs Fleece Jacket");
-                    expect(InventoryPage.nameItemSelector(2)).toHaveText("Sauce Labs Bolt T-Shirt");
-                    expect(InventoryPage.nameItemSelector(1)).toHaveText("Sauce Labs Bike Light");
-                    expect(InventoryPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");                    
-                });
-                it('Name Z-A : the names must be ordered in a descending fashion', () =>{
-                    browser.refresh();
-                    InventoryPage.productSorter.click();
-                    InventoryPage.sortItems(1);                   
-                    expect(InventoryPage.nameItemSelector(0))
-                    .toHaveText("Test.allTheThings() T-Shirt (Red)");
-                    expect(InventoryPage.nameItemSelector(1)).toHaveText("Sauce Labs Onesie");
-                    expect(InventoryPage.nameItemSelector(2)).toHaveText("Sauce Labs Fleece Jacket");
-                    expect(InventoryPage.nameItemSelector(3)).toHaveText("Sauce Labs Bolt T-Shirt");
-                    expect(InventoryPage.nameItemSelector(4)).toHaveText("Sauce Labs Bike Light");
-                    expect(InventoryPage.nameItemSelector(5)).toHaveText("Sauce Labs Backpack");                    
-                });
-                it('Price low to high : the prices must be ordered in a descending fashion' , () => {
-                    browser.refresh();
-                    InventoryPage.productSorter.click();
-                    InventoryPage.sortItems(2);
-                    expect(InventoryPage.priceItemSelector(0)).toHaveText("$7.99");
-                    expect(InventoryPage.priceItemSelector(1)).toHaveText("$9.99");
-                    expect(InventoryPage.priceItemSelector(2)).toHaveText("$15.99");
-                    expect(InventoryPage.priceItemSelector(3)).toHaveText("$15.99");
-                    expect(InventoryPage.priceItemSelector(4)).toHaveText("$29.99"); 
-                    expect(InventoryPage.priceItemSelector(5)).toHaveText("$49.99");
-                });
-                it('Price high to low : the prices must be ordered in a descending fashion', () => {
-                    browser.refresh();
-                    InventoryPage.productSorter.click();
-                    InventoryPage.sortItems(3);
-                    expect(InventoryPage.priceItemSelector(0)).toHaveText("$49.99");
-                    expect(InventoryPage.priceItemSelector(1)).toHaveText("$29.99");
-                    expect(InventoryPage.priceItemSelector(2)).toHaveText("$15.99");
-                    expect(InventoryPage.priceItemSelector(3)).toHaveText("$15.99");
-                    expect(InventoryPage.priceItemSelector(4)).toHaveText("$9.99");
-                    expect(InventoryPage.priceItemSelector(5)).toHaveText("$7.99");                   
-                });
-            });                
+                describe ('SORTER testing', () => {                
+                    it('Price HIGH-LOW OP: 3 the prices must be ordered in a descending fashion', () =>{
+                        browser.refresh();
+                        InventoryPage.productSorter.click();
+                        InventoryPage.sortItems(3);
+                        expect(InventoryPage.priceItemSelector(0)).toHaveText("$49.99");
+                        expect(InventoryPage.priceItemSelector(1)).toHaveText("$29.99");
+                        expect(InventoryPage.priceItemSelector(2)).toHaveText("$15.99");
+                        expect(InventoryPage.priceItemSelector(3)).toHaveText("$15.99");
+                        expect(InventoryPage.priceItemSelector(4)).toHaveText("$9.99");
+                        expect(InventoryPage.priceItemSelector(5)).toHaveText("$7.99");                   
+                    });                
+                    it('Price LOW-HIGH OP:2  the prices must be ordered in a ascending fashion', () =>{
+                        browser.refresh();
+                        InventoryPage.productSorter.click();
+                        InventoryPage.sortItems(2);
+                        expect(InventoryPage.priceItemSelector(0)).toHaveText("$7.99");
+                        expect(InventoryPage.priceItemSelector(1)).toHaveText("$9.99");
+                        expect(InventoryPage.priceItemSelector(2)).toHaveText("$15.99");
+                        expect(InventoryPage.priceItemSelector(3)).toHaveText("$15.99");
+                        expect(InventoryPage.priceItemSelector(4)).toHaveText("$29.99"); 
+                        expect(InventoryPage.priceItemSelector(5)).toHaveText("$49.99");
+                    });
+                    it('Name Z-A OP:1  the names must be ordered in a descending fashion', () =>{
+                        browser.refresh();
+                        InventoryPage.productSorter.click();
+                        InventoryPage.sortItems(1);                   
+                        expect(InventoryPage.nameItemSelector(0))
+                        .toHaveText("Test.allTheThings() T-Shirt (Red)");
+                        expect(InventoryPage.nameItemSelector(1)).toHaveText("Sauce Labs Onesie");
+                        expect(InventoryPage.nameItemSelector(2)).toHaveText("Sauce Labs Fleece Jacket");
+                        expect(InventoryPage.nameItemSelector(3)).toHaveText("Sauce Labs Bolt T-Shirt");
+                        expect(InventoryPage.nameItemSelector(4)).toHaveText("Sauce Labs Bike Light");
+                        expect(InventoryPage.nameItemSelector(5)).toHaveText("Sauce Labs Backpack");                    
+                    });
+                    it('Name A-Z OP:  the names must be ordered in a descending fashion', () =>{
+                        browser.refresh();
+                        InventoryPage.productSorter.click();
+                        InventoryPage.sortItems(0);
+                        expect(InventoryPage.nameItemSelector(5))
+                        .toHaveText("Test.allTheThings() T-Shirt (Red)");
+                        expect(InventoryPage.nameItemSelector(4)).toHaveText("Sauce Labs Onesie");
+                        expect(InventoryPage.nameItemSelector(3)).toHaveText("Sauce Labs Fleece Jacket");
+                        expect(InventoryPage.nameItemSelector(2)).toHaveText("Sauce Labs Bolt T-Shirt");
+                        expect(InventoryPage.nameItemSelector(1)).toHaveText("Sauce Labs Bike Light");
+                        expect(InventoryPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");                    
+                    });
+                });                
             describe('Add all items to cart and check if the quantity is reflected on the counter' , () => {
                 it('Add and remove items one by one and check counter' , () => {
                     InventoryPage.addBackPackToCart.click();
@@ -100,10 +100,10 @@ describe ('INVENTORY page testing',  () => {
                     expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();  
                 });
             });
-                describe ('BACKPACK testing', () => {
-                    it('Click item  img/name and check it opens the individual item page'
+            describe ('BACKPACK testing', () => {
+                it('Click item  img/name and check it opens the individual item page'
                     +'then open the burger menu, click the ALL ITEMS option and check the url', () => {
-                    InventoryPage.igmItemSelector(0).click();
+                    InventoryPage.igmItemSelector(1).click();
                     expect(browser).toHaveUrl(itemUrlFour);
                     InventoryPage.burgerMenuOption(InventoryPage.allItemsBtn);
                     expect(browser).toHaveUrl(urlInventory);
@@ -112,7 +112,7 @@ describe ('INVENTORY page testing',  () => {
                     InventoryPage.burgerMenuOption(InventoryPage.allItemsBtn);
                     expect(browser).toHaveUrl(urlInventory);
                     browser.pause(1000);                  
-                     }); 
+                });
                     it('Click item  IMG add item to cart then remove the item'
                     +'then check the cart item counter', () => {
                         InventoryPage.igmItemSelector(1).click();
@@ -141,8 +141,8 @@ describe ('INVENTORY page testing',  () => {
                     });
                 });
                     describe ('SAUCE LABS BIKE LIGHT testing', () => {
-                        it('Click item  IMG and check it opens the individual item page'
-                        +'then click on BACK TO PRODUCTS and check the inventory url', () => {
+                        it('Click item  img/name and check it opens the individual item page'
+                        +'then open the burger menu, click the ALL ITEMS option and check the url', () => {
                             browser.url(urlInventory);
                             InventoryPage.igmItemSelector(2).click();
                             expect(browser).toHaveUrl(itemUrlZero);
@@ -154,26 +154,26 @@ describe ('INVENTORY page testing',  () => {
                             expect(browser).toHaveUrl(urlInventory);
                             browser.pause(1000);
                         });
-                        it('Click item  IMG add item to cart then remove the item'
-                    +'then check the cart item counter', () => {
-                        InventoryPage.igmItemSelector(2).click();
-                        expect(browser).toHaveUrl(itemUrlZero);
-                        InventoryPage.addLabLightToCart.click();
-                        browser.pause(1000);                
-                        expect(InventoryPage.cartItemsCounter).toHaveText("1");
-                        InventoryPage.removeLabLightFromCart.click();
-                        browser.pause(1000);
-                        expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
-                        browser.url(urlInventory);
-                        browser.pause(1000);                 
-                    });               
-                    it('Add item to the cart then click burger menu and click RESET APP STATE then check'
-                    +'the cartItemsCounter display status', () => {
-                        InventoryPage.addLabLightToCart.click();
-                        InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);
-                        expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
-                        browser.pause(1000);
-                    });
+                        it('Click item  IMG add item to cart the remove the item'
+                        +'then check the cart item counter', () => {                    
+                          InventoryPage.igmItemSelector(2).click();
+                          expect(browser).toHaveUrl(itemUrlZero);
+                          InventoryPage.addLabLightToCart.click();
+                          browser.pause(1000);                
+                          expect(InventoryPage.cartItemsCounter).toHaveText("1");
+                          InventoryPage.removeLabLightFromCart.click();
+                         browser.pause(1000);
+                         expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
+                         browser.url(urlInventory);
+                         browser.pause(1000);                 
+                          });             
+                     it('Add item to the cart then click burger menu and click RESET APP STATE then check'
+                          +'the cartItemsCounter display status', () => {
+                              InventoryPage.addLabLightToCart.click();
+                              InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);
+                              expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
+                              browser.pause(1000);
+                          });
                     it('Click checkout and test the url', () => {                
                         InventoryPage.shoppingCartLink.click();
                         InventoryPage.checkOutBtn.click();
