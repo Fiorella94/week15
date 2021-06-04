@@ -158,7 +158,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             +" with 3 lighting modes, 1 AAA battery included.");
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
-            CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
+            CheckoutPage.testCheckoutForm('Fiorella', 'Salas', '22122');
             expect(browser).toHaveUrl(urlCheckoutTwo);
             expect(CheckoutPage.nameItemSelector(0)).toHaveText("Sauce Labs Bike Light");
             expect(CheckoutPage.descriptionItemSelector(0))
